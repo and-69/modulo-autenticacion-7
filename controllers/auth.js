@@ -1,5 +1,4 @@
 import Register from "../models/register.js";
-import login from "../models/login.js";
 import bcryptjs from "bcryptjs";
 import { generarJWT } from "../middlewares/jwt.js";
 
@@ -46,23 +45,6 @@ const auth = {
             return res.status(500).json({
                 msg: "Hable con el WebMaster",
                 error: error.message
-            })
-        }
-    },
-
-    dashboard: async (req, res) => {
-        try {
-            const { token } = req.header('Authorization');
-            const { email, password } = req.body;
-            const usuario = await Users.findOne({ email })
-
-            res.json({
-                usuario,
-                token
-            })
-        } catch (error) {
-            return res.status(500).json({
-                msg: "Hable con el WebMaster"
             })
         }
     }
