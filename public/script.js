@@ -333,7 +333,7 @@ function closeAllModals() {
 }
 // Function to toggle modal effects
 function toggleModalEffects(show) {
-    const mainContent = document.getElementById('mainContent');
+    const mainContent = document.getElementById('container');
     if (!mainContent) return;
     if (show) {
         mainContent.classList.add('blur');
