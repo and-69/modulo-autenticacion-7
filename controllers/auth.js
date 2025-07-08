@@ -50,17 +50,54 @@ const auth = {
     profile: async (req, res) => {
         try {
             const holder = req.usuario;
-            if (!holder) {
-                return res.status(404).json({ msg: 'Usuario no encontrado' });
+            if (!holder) throw new Error('Usuario no encontrado');
+
+            const { username, email, password } = req.body;
+            let updated = false;
+
+            if (username && username !== holder.username) {
+                const exists = await Register.findOne({ username, _id: { $ne: holder._id } });
+                if (exists) throw new Error('El nombre de usuario ya está en uso');
+                holder.username = username;
+                updated = true;
             }
-            res.json({
-                holder,
-                msg: "Perfil obtenido correctamente"
-            });
+
+            if (email && email !== holder.email) {
+                const exists = await Register.findOne({ email, _id: { $ne: holder._id } });
+                if (exists) throw new Error('El correo electrónico ya está en uso');
+                holder.email = email;
+                updated = true;
+            }
+
+            if (password) {
+                const salt = bcryptjs.genSaltSync();
+                holder.password = bcryptjs.hashSync(password, salt);
+                updated = true;
+            }
+
+            if (updated) {
+                await holder.save();
+                res.json({
+                    holder: {
+                        _id: holder._id,
+                        username: holder.username,
+                        email: holder.email,
+                    },
+                    msg: "Perfil actualizado correctamente"
+                });
+            } else {
+                res.json({
+                    holder: {
+                        _id: holder._id,
+                        username: holder.username,
+                        email: holder.email,
+                    },
+                    msg: "No se realizaron cambios en el perfil"
+                });
+            }
         } catch (error) {
-            res.status(500).json({
-                msg: "Hable con el WebMaster",
-                error: error.message
+            res.status(400).json({
+                msg: error.message || "Error al actualizar el perfil"
             });
         }
     }

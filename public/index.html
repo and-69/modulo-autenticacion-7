@@ -16,13 +16,14 @@
       <div>
         <div class="profile">
           <h3 id="usuarioName"></h3>
-          <img src="" alt="User" />
+          <img src="img/pngegg.png" alt="User" id="dashboardProfilePic">
         </div>
         <div class="menu">
           <p class="menu-item">Dashboard</p>
           <p class="menu-item">Activity</p>
           <p class="menu-item">Schedule</p>
           <button class="settings" id="settingsBtn">Settings</button>
+          <button class="logout" id="logoutBtn" onclick="logout()">Logout</button>
         </div>
       </div>
       <div class="toggle">
@@ -99,7 +100,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Register</h1>
-          <button type="button" class="btn-close open-sweet-alert" data-bs-dismiss="modal" aria-label="Close" onclick="limpiarModalRegistro()"></button>
+          <button type="button" class="btn-close open-sweet-alert" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="row">
