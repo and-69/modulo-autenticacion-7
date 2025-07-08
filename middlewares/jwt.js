@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
-import Users from '../models/register.js'
+import Register from '../models/register.js'
 
 const generarJWT = (_id) => {
     return new Promise((resolve, reject) => {
@@ -27,12 +27,13 @@ const validarJWT = async (req, res, next) => {
     }
     try {
         const { _id } = jwt.verify(token, process.env.JWT_PD)
-        const usuario = await Users.findById(_id);
+        const usuario = await Register.findById(_id);
         if (!usuario || usuario.estado == 0) {
             return res.status(401).json({
                 msg: "Token no válido - Usuario inexistente o inactivo"
             })
         }
+        req.uid=_id
         req.usuario = usuario;
         next();
     } catch (error) {

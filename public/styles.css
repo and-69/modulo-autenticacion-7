@@ -6,7 +6,15 @@ body,
     display: flex;
     height: 100vh;
   }
-
+  .profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h3{
+    color:white !important
+  }
   .sidebar {
     background: #1e1f26;
     width: 250px;
