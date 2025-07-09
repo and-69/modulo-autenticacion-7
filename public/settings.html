@@ -12,23 +12,13 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4 text-center" style="color: #fbee8b;">Editar Perfil</h1>
-        <form>
+        <form >
             <div class="mb-3 text-center">
-                <label for="profilePic" class="profile-pic-label mb-3" style="display:inline-block;cursor:pointer;">
-                    <div class="row">
-                        <div class="col-md-3 justify-content-center">
-                            <label for="profilePic" class="form-label d-block">porfile picture</label>
-                            <input class="form-control d-none" type="file" id="profilePic" accept="image/*"
-                                onchange="previewProfilePic(event)">
-                            <label for="profilePic" style="cursor:pointer;">
-                                <img id="profilePicPreview" src="" alt="Foto de perfil"
-                                    style="width:100px;height:100px;object-fit:cover;border-radius:50%;border:3px solid #ffc107;background:#222;">
-                            </label>
-                        </div>
-                    </div>
-                    <input class="form-control" type="file" id="profilePic" accept="image/*" style="display:none;">
+                <label for="profilePic" class="profile-pic-label">
+                    <img id="profilePicPreview" class="profile-pic-preview" src="" alt="Foto de perfil">
                 </label>
-                <div style="color:#fbee8b;font-size:0.95em;">Haz clic en la foto para cambiarla</div>
+                <input class="form-control d-none" type="file" id="profilePic" accept="image/*"
+                    onchange="previewProfilePic(event)">
             </div>
             <div class="mb-3">
                 <label for="userName" class="form-label">Nombre de usuario</label>
@@ -42,8 +32,10 @@
                 <label for="password" class="form-label">Nueva contraseña</label>
                 <input type="password" class="form-control" id="passwordRegister" placeholder="Nueva contraseña">
             </div>
-            <button type="button" class="btn btn-primary w-100" onclick="profileEdit()">Guardar cambios</button>
-            <button type="button" class="btn btn-primary w-100" onclick="backToDashboard()">Volver</button>
+            <div class="botones">
+                <button type="button" class="btn10" onclick="backToDashboard()">Volver</button>
+                <button type="button" class="btn10" onclick="profileEdit()">Guardar cambios</button>
+            </div>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
