@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dark UI Dashboard</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -56,28 +56,61 @@
     </div>
     <div class="main">
       <div class="card">
-        <h4>Website traffic</h4>
+        <div class="encabezado">
+          <h4>Website traffic</h4>
+          <small>More</small>
+        </div>
         <div class="highlight">12k</div>
-        <p><span class="yellow">78%</span> Social Media</p>
-        <p><span class="yellow">22%</span> Organic Search</p>
+        <p> Social Media<span class="yellow">78%</span></p>
+        <hr>
+        <hr>
+        <p> Organic Search<span class="yellow">22%</span></p>
       </div>
       <div class="card">
-        <h4>Full Report / 2023</h4>
-        <button class="btn">Download Report</button>
+        <div class="space">
+          <div class="encabezado1">
+            <h4>Full Report</h4>
+            <h4>/2023</h4>
+          </div>
+          <button class="btn">Download Report</button>
+        </div>
       </div>
       <div class="card">
-        <h4>Bounce Rate</h4>
-        <p><strong class="yellow">23%</strong></p>
-        <p>+10% Since last day</p>
+        <div class="space">
+          <div class="encabezado1">
+            <h4>Bounce Rate</h4>
+            <span class="flecha">↗</span>
+          </div>
+          <div class="tarjetas">
+            <div class="t1">
+              <h5>Mon</h5>
+              <p1>2</p1>
+            </div>
+            <div class="t2">
+              <h5>Tue</h5>
+              <p1>3</p1>
+            </div>
+            <div class="t1">
+              <h5>Wed</h5>
+              <p1>4</p1>
+            </div>
+          </div>
+          <div class="felx">
+            <p><strong class="yellow grande">23%</strong></p>
+            <div class="p">
+              <p class="peq">-10%</p>
+              <p class="peq"> Since last day</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card">
         <h4>ROI</h4>
         <p><strong class="yellow">283%</strong> Return On Investment</p>
         <div class="graph"></div>
       </div>
-      <div class="card">
-        <img src="img/fondoCard.jpg" alt="AI" style="width:100%; border-radius: 10px;">
-        <p><strong>Web Score with AI</strong></p>
+      <div class="card imagen">
+         <button class="btn abajo">Web Score with AI</button>
       </div>
       <div class="card">
         <h4>Customer Churn Rate</h4>
@@ -99,11 +132,13 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-12">
-              <input type="text" class="form-control" id="email" placeholder="Email">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Email">
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
+              <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
           </div>
@@ -128,22 +163,27 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-12">
+              <label for="username" class="form-label">Username</label>
               <input type="text" class="form-control" id="userName" placeholder="Username">
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <input type="text" class="form-control" id="emailRegister" placeholder="Email">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailRegister" placeholder="Email">
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="position-relative">
-                <input type="password" class="form-control" id="passwordRegister" placeholder="Password">
-                <span class="position-absolute top-50 end-0 translate-middle-y me-3 ojo" style="cursor:pointer;"
+              <div class="form-group position-relative mb-3">
+                <label for="passwordRegister" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="passwordRegister" placeholder="Ingresa tu contraseña"
+                  style="padding-right: 40px;">
+                <span class="position-absolute"
+                  style="top: 70%; right: 10px; transform: translateY(-50%); cursor: pointer;"
                   onclick="togglePasswordRegister()">
-                  <svg id="eyeIconRegister" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                  <svg id="eyeIconRegister" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                    class="bi bi-eye" viewBox="0 0 16 16">
                     <path
                       d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.787C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z" />
                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" />

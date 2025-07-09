@@ -88,7 +88,7 @@ html {
     padding: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 0.8fr); 
+    grid-template-rows: repeat(2, 1fr); 
     gap: 20px;
     background: #181a20;
     align-items: stretch;
@@ -105,7 +105,7 @@ html {
     color: #fff;
     border: 1.5px solid #23242b;
     transition: box-shadow 0.2s, border 0.2s;
-    height: 100%;
+    height: auto;
     min-height: unset;
     display: flex;
     flex-direction: column;
@@ -124,31 +124,26 @@ html {
     margin: 0 auto 8px auto;
     display: block;
   }
-
   .card .highlight {
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(128,255,211,0.13);
-    font-size: 16px;
-    width: 60px;
-    height: 60px;
+    box-shadow: 0 2px 8px rgba(4, 7, 6, 0.13);
+    font-size: 30px;
+    width: 120px;
+    height: 120px;
     margin: 0 auto 8px auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: yellow;
+    color: black;
+    border: 5px solid gray;
   }
 
   .card h4 {
     color: #80ffd3;
     font-weight: 600;
     letter-spacing: 1px;
-    font-size: 1rem;
     margin-bottom: 4px;
-  }
-
-  .card p, .card strong {
-    font-size: 0.85rem;
-    margin-bottom: 2px;
-    text-align: center;
   }
 
   .yellow {
@@ -411,7 +406,9 @@ body.light-theme {
   background: #f5f7fa !important;
   color: #2b2e39;
 }
-
+.light-theme .imagen {
+  background-image: url('img/fondoCard.jpg');
+}
 .light-theme .container,
 .light-theme .dashboard {
   background: #f5f7fa !important;
@@ -493,6 +490,10 @@ body.light-theme {
   background: #b0b5c0;
 }
 
+.light-text,.dark-text{
+  cursor: pointer;
+}
+
 body,
 .sidebar,
 .card,
@@ -502,6 +503,103 @@ body,
   transition: all 0.3s ease-in-out;
 }
 
+.encabezado{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+p{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  width: 100%;
+}
+hr{
+  border: 1px solid white;
+  width: 100%;
+  margin: 3px;
+}
+h4,small{
+  font-size: 20px;
+}
+.encabezado1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+  gap: 50px;
+}
+.flecha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+}
+.felx{
+  display: flex;
+}
+.grande{
+  font-size: 45px;
+}
+.p{
+  display: grid;
+}
+.peq{
+  font-size: 12px;
+}
+.space{
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.tarjetas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+h5{
+  font-size: 15px;
+}
+.t1{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 10px;
+}
+.t2{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #80ffd3;
+  color: black;
+}
+.imagen{
+  background-image: url('img/fondoCard.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 150px;
+}
+.abajo{
+  margin-top: 200px;
+}
 @media (max-width:768px){
   .main{
     grid-template-columns: 1fr 1fr;
