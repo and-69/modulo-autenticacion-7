@@ -29,7 +29,7 @@
   {
   "scripts": {
     "install": "npm ci --legacy-peer-deps", 
-    "build": "npm run install && tu-comando-de-build" 
+    "build": "npm run install && node dist/auth.js" 
   }
 }
 }
