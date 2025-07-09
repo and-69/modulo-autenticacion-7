@@ -134,7 +134,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: yellow;
+    background-color: #fbee8b;
     color: black;
     border: 5px solid gray;
   }
@@ -597,6 +597,20 @@ h5{
   background-repeat: no-repeat;
   min-height: 150px;
 }
+.imagen1{
+  background-image: url('img/grafica.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 150px;
+}
+.imagen2{
+  background-image: url('img/nubes.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
 .abajo{
   margin-top: 200px;
 }
@@ -615,7 +629,7 @@ h5{
     height: 100%;
   }
   .sidebar{
-    height: 100vh;
+    height: 175vh;
     width: 150px;
   }
 }

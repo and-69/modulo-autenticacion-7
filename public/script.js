@@ -32,6 +32,7 @@ const login = async () => {
             localStorage.setItem('token', data.token)
             localStorage.setItem('currentUserEmail', data.holder.email);
             toggleModalEffects(false)
+            window.location.reload();
         });
 
     } catch (error) {
@@ -95,7 +96,7 @@ const register = async () => {
             loginModal.show();
 
             document.getElementById('email').value = email;
-
+            window.location.reload();
         });
 
     } catch (error) {
