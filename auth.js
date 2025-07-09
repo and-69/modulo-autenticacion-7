@@ -15,6 +15,3 @@ mongoose.connect(process.env.MONGO_CNX)
 auth.listen(process.env.PORT, () => {
     console.log(`Listening the port ${process.env.PORT}`);
 })
-
-
-

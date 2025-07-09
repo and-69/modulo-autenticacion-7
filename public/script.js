@@ -1,21 +1,3 @@
-// //funcion para ver la foto de perfil
-function previewProfilePic(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const preview = document.getElementById('profilePicPreview');
-        if (preview) preview.src = e.target.result;
-        const email = localStorage.getItem('currentUserEmail');
-        if (email) {
-            localStorage.setItem(`profilePic_${email}`, e.target.result);
-        }
-    };
-    reader.readAsDataURL(file);
-}
-
-
-
 //// Functions
 
 // Login function
@@ -175,6 +157,8 @@ const profile = async () => {
         });
     }
 }
+
+// EditFunction
 const profileEdit = async () => {
     const username = document.getElementById('userName')?.value;
     const email = document.getElementById('emailRegister')?.value;
@@ -230,7 +214,7 @@ const profileEdit = async () => {
     }
 };
 
-//function password ocult
+// Function password ocult eye
 function togglePasswordRegister() {
     const input = document.getElementById('passwordRegister');
     const icon = document.getElementById('eyeIconRegister');
@@ -301,6 +285,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 });
 
+// Mostrar modal login
 const loginBtn = document.querySelector('#loginModal .btn-secondary');
 if (loginBtn) {
     loginBtn.addEventListener('click', function () {
@@ -312,6 +297,8 @@ if (loginBtn) {
         toggleModalEffects(true);
     });
 }
+
+// Mostrar modal registro
 const registerBtn = document.querySelector('#registerModal .btn-primary');
 if (registerBtn) {
     registerBtn.addEventListener('click', function () {
@@ -323,6 +310,7 @@ if (registerBtn) {
         toggleModalEffects(true);
     });
 }
+
 // Cerrar todos los modales
 function closeAllModals() {
     document.querySelectorAll('.modal').forEach(modalEl => {
@@ -331,6 +319,7 @@ function closeAllModals() {
     });
     toggleModalEffects(false);
 }
+
 // Function to toggle modal effects
 function toggleModalEffects(show) {
     const mainContent = document.getElementById('container');
@@ -341,6 +330,7 @@ function toggleModalEffects(show) {
         mainContent.classList.remove('blur');
     }
 }
+
 // SweetAlert2 for error handling
 document.querySelectorAll('.open-sweet-alert').forEach(button => {
     button.addEventListener('click', function () {
@@ -356,6 +346,8 @@ document.querySelectorAll('.open-sweet-alert').forEach(button => {
         toggleModalEffects(true);
     });
 });
+
+// Limpieza de modales
 const limpiarModalRegistro = () => {
     document.getElementById('userName').value = '';
     document.getElementById('emailRegister').value = '';
@@ -377,11 +369,29 @@ if (settingsBtn) {
     });
 }
 
+// Function para ver la foto de perfil
+function previewProfilePic(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const preview = document.getElementById('profilePicPreview');
+        if (preview) preview.src = e.target.result;
+        const email = localStorage.getItem('currentUserEmail');
+        if (email) {
+            localStorage.setItem(`profilePic_${email}`, e.target.result);
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+// Function retroceso de window
 function backToDashboard() {
     window.location.href = 'index.html';
     closeAllModals()
 }
 
+// Funtion logout
 function logout() {
     const email = localStorage.getItem('currentUserEmail');
     if (email) {
@@ -392,3 +402,30 @@ function logout() {
     localStorage.removeItem('currentUserEmail');
     window.location.href = 'index.html';
 }
+
+// Funtion tema oscuro o claro
+function toggleTheme() {
+  document.body.classList.toggle('light-theme');
+  
+  const isLight = document.body.classList.contains('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  
+  const lightText = document.getElementById('lightText');
+  const darkText = document.getElementById('darkText');
+  
+  if(isLight) {
+    lightText.innerHTML = '<strong>Light</strong>';
+    darkText.innerHTML = 'Dark';
+  } else {
+    lightText.innerHTML = 'Light';
+    darkText.innerHTML = '<strong class="yellow">Dark</strong>';
+  }
+}
+
+if(localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light-theme');
+  document.getElementById('lightText').innerHTML = '<strong>Light</strong>';
+  document.getElementById('darkText').innerHTML = 'Dark';
+}
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
