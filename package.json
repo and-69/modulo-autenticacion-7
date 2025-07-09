@@ -26,10 +26,5 @@
     "mongoose": "^8.16.2",
     "nodemon": "^3.1.10"
   }
-  {
-  "scripts": {
-    "install": "npm ci --legacy-peer-deps", 
-    "build": "npm run install && node dist/auth.js" 
-  }
-}
+
 }
