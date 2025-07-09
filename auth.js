@@ -5,7 +5,7 @@ import router from './routes/routes.js'
 
 const auth = express()
 auth.use(express.json()) 
-auth.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')));
 auth.use('/dashboard', router)
 
 mongoose.connect(process.env.MONGO_CNX)
